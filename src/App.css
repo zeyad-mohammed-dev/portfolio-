@@ -1,0 +1,62 @@
+#root {
+  min-height: 100vh;
+}
+
+.icon-btn,
+.control-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card) / 0.7);
+  color: hsl(var(--foreground));
+  transition: 160ms ease;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 0.6rem;
+}
+
+.control-btn {
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.65rem;
+  font-size: 0.8rem;
+}
+
+.icon-btn:hover,
+.control-btn:hover {
+  border-color: hsl(var(--primary) / 0.55);
+  background: hsl(var(--primary) / 0.08);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--primary) / 0.05);
+  color: hsl(var(--primary));
+  padding: 0.4rem 0.7rem;
+  font: 500 0.74rem/1 'JetBrains Mono', monospace;
+}
+
+.hero-title {
+  max-width: 900px;
+  font-size: clamp(2.7rem, 6vw, 5.8rem);
+}
+
+.hero-photo-wrap {
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo-wrap { animation: none; }
+}
