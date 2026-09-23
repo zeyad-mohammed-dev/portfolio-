@@ -1,14 +1,39 @@
-import { Github, Linkedin, Mail, Send, MapPin } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Send,
+  Phone,
+  MessageCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const whatsappMessage = "Hi Zeyad, I saw your portfolio!";
+
+  const whatsappUrl = `https://wa.me/201016994927?text=${encodeURIComponent(
+    whatsappMessage
+  )}`;
+
   const contactLinks = [
+    {
+      icon: Phone,
+      label: "Phone",
+      value: "+20 101 699 4927",
+      href: "tel:+201016994927",
+    },
+    {
+      icon: MessageCircle,
+      label: "Phone / WhatsApp",
+      value: "+20 101 699 4927",
+      href: whatsappUrl,
+    },
     {
       icon: Mail,
       label: "Email",
-      value: "zeyadmohammed200493@gmail.com",
-      href: "mailto:zeyadmohammed200493@gmail.com",
+      value: "zeyad.mohammed.dev@gmail.com",
+      href: "mailto:zeyad.mohammed.dev@gmail.com",
     },
     {
       icon: Github,
@@ -64,7 +89,11 @@ const Contact = () => {
                     <a 
                       key={link.label}
                       href={link.href}
-                      target={link.href.startsWith('mailto') ? undefined : '_blank'}
+                      target={
+  link.href.startsWith("tel:") || link.href.startsWith("mailto:")
+    ? undefined
+    : "_blank"
+}
                       rel="noopener noreferrer"
                       className="flex items-center gap-4 group"
                     >
@@ -96,7 +125,7 @@ const Contact = () => {
                   </p>
                   <div className="flex flex-col gap-3">
                     <Button variant="hero" size="lg" className="w-full" asChild>
-                      <a href="mailto:zeyadmohammed200493@gmail.com">
+                      <a href="mailto:zeyad.mohammed.dev@gmail.com">
                         <Mail className="w-5 h-5" />
                         Send Email
                       </a>
