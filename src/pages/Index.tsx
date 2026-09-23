@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight, BriefcaseBusiness, CheckCircle2, Code2, Database, Download,
-  Github, GraduationCap, Layers3, Linkedin, Mail, MapPin, Server,
+  Github, GraduationCap, Layers3, Linkedin, Mail, MapPin, MessageCircle, Phone, Server,
   ShieldCheck, ExternalLink,
 } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.png";
@@ -191,6 +191,9 @@ export default function Index() {
   const t = copy[lang];
   const localized = sectionCopy[lang];
   const projects = projectData.map(p => translateProject(p, lang));
+  const whatsappUrl = `https://wa.me/201016994927?text=${encodeURIComponent(
+    "Hi Zeyad, I saw your portfolio!"
+  )}`;
 
   useEffect(() => {
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
@@ -345,6 +348,8 @@ export default function Index() {
             <SectionTitle eyebrow={t.contactEyebrow} title={t.contactTitle} text={t.contactText} />
             <div className="grid gap-6 lg:grid-cols-[1fr_.8fr]">
               <div className="glass-card p-8"><div className="space-y-5">
+                <a href="tel:+201016994927" className="flex items-center gap-4"><Phone className="h-6 w-6 text-primary"/><div><p className="text-sm text-muted-foreground">{lang === "en" ? "Phone" : "الهاتف"}</p><p className="font-medium">+20 101 699 4927</p></div></a>
+                <a href={whatsappUrl} target="_blank" rel="noreferrer" className="flex items-center gap-4"><MessageCircle className="h-6 w-6 text-primary"/><div><p className="text-sm text-muted-foreground">{lang === "en" ? "Phone / WhatsApp" : "الهاتف / واتساب"}</p><p className="font-medium">+20 101 699 4927</p></div></a>
                 <a href="mailto:zeyad.mohammed.dev@gmail.com" className="flex items-center gap-4"><Mail className="h-6 w-6 text-primary"/><div><p className="text-sm text-muted-foreground">{t.email}</p><p className="font-medium break-all">zeyad.mohammed.dev@gmail.com</p></div></a>
                 <a href="https://linkedin.com/in/zeyad-mohammed-dev" target="_blank" rel="noreferrer" className="flex items-center gap-4"><Linkedin className="h-6 w-6 text-primary"/><div><p className="text-sm text-muted-foreground">{t.linkedin}</p><p className="font-medium break-all">linkedin.com/in/zeyad-mohammed-dev</p></div></a>
                 <a href="https://github.com/zeyad-mohammed-dev" target="_blank" rel="noreferrer" className="flex items-center gap-4"><Github className="h-6 w-6 text-primary"/><div><p className="text-sm text-muted-foreground">{t.github}</p><p className="font-medium break-all">github.com/zeyad-mohammed-dev</p></div></a>
